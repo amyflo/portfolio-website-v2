@@ -8,6 +8,9 @@ import {
   navLinkText,
 } from "./layout.module.css"
 
+import { Button, ButtonGroup } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
+
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -20,10 +23,11 @@ const Layout = ({ pageTitle, children }) => {
   `)
 
   return (
-    <div className={container}>
+    <ChakraProvider>
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
+      <Button colorScheme="blue">Button</Button>
       <header>{data.site.siteMetadata.title}</header>
       <nav>
         <ul className={navLinks}>
@@ -43,7 +47,7 @@ const Layout = ({ pageTitle, children }) => {
         <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>
-    </div>
+    </ChakraProvider>
   )
 }
 
