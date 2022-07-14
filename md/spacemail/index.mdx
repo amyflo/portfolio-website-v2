@@ -1,5 +1,6 @@
 ---
 title: "SpaceMail"
+description: SpaceMail is a Unity-based digital narrative game that explores political rebellion, ethics, and space. 
 date: "2022-07-12"
 slug: "/spacemail"
 hero_image: "./title-screen.png"
@@ -21,11 +22,20 @@ embeddedImagesLocal:
 - './p3.png'
 - './p4.png'
 - './p5.png'
+role: Design, Art Direction
+team: Kyle Nguyen, Michelle Qin, Sam Silverstein, Jin-Hee Lee
+tools: Unity, Figma, Adobe Illustrator, Adobe Photoshop
 ---
+
 
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
-[Play SpaceMail online](https://kalechipps.itch.io/spacemail)
+
+
+import { Container, Box, Heading, SimpleGrid, List, ListItem, ListIcon, OrderedList, UnorderedList } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+
+> [Play SpaceMail online](https://kalechipps.itch.io/spacemail)
 
 ## Artist’s Statement
 
@@ -34,6 +44,7 @@ SpaceMail is about working as a space package delivery person who is thrust into
 SpaceMail follows the player’s first three days on the job, across which they deliver packages between the five planets of the Proioxis Galaxy. The game follows a scripted sequence of packages—at first, the packages are fairly innocuous, but as the game progresses, the packages begin to reveal a deep secret: a second Resistance movement brewing, and the player has the power to stifle or empower the nascent rebellion by which packages they decide to deliver or incinerate.
 
 Player decisions are the core of SpaceMail. Player decisions about early packages affect the progression of the story. Players must balance between performing their job well enough to not get fired and also making calculated mis-deliveries in order to push the story in the direction that they want. Ultimately, the choice is theirs on how they wish to progress the story, and different play-throughs will yield different narrative outcomes.
+
 
 ## Target Audience
 
@@ -98,37 +109,58 @@ We composed lo-fi music aimed to comfort the audience and sound effects to go wi
 Game soundtrack
 Incinerating a package
 
-## Design Process
 
-### Initial Decisions
 
-We approached this project not knowing what idea we wanted to pursue, but we wanted to listen to Christina’s advice not to compromise and try to create a mashed-up version that took only a little bit of everyone’s idea. Instead, to start the ideation process, we did this exercise where we cut up small bits of paper (10 for each person) and spent 30 seconds writing down one idea for each bit of paper – an activity called “Crazy 8’s”.
 
-After generating ideas separately, we evaluated them together. This looked like us each marking the ideas that we liked on the bits of paper and discussing the ideas that were most popular.
 
-<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[6])} />
+<SimpleGrid mb={4} columns={[1,1,2]} gap='4'>
+  <Box>
+  <h2>Design Process</h2>
+  <h3>Initial Decisions</h3>
+  <p>
+  We approached this project not knowing what idea we wanted to pursue. To start the ideation process, we did this exercise where we cut up small bits of paper (10 for each person) and spent 30 seconds writing down one idea for each bit of paper – an activity called “Crazy 8’s”. 
+  </p>
+  <p>
 
-During this discussion, we used a whiteboard to write down what elements from each idea we liked. It was in this process where we began to notice resonance, for example, interest in creating a well-rounded ambiance and creating a fantasy/space theme. This was the start of us coming up with the fundamental formal elements that our team hoped to create as well as the space premise of our game. 
+  After generating ideas separately, we evaluated them together. This looked like us each marking the ideas that we liked on the bits of paper and discussing the ideas that were most popular.
+  </p>
+  <p>
+During this discussion, we used a whiteboard to write down what elements from each idea we liked. It was in this process where we began to notice resonance, for example, interest in creating a well-rounded ambiance and creating a fantasy/space theme. 
+This was the start of us coming up with the fundamental formal elements that our team hoped to create as well as the space premise of our game. After each pitch, we discussed, refined, and pitched again. 
+</p>
+  </Box>
+  <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[6])} />
+</SimpleGrid>
 
 <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[7])} />
+ 
+<SimpleGrid mt={4} columns={[1,1,2]} gap='4'>
+  <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[8])} />
+  <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[9])} />
+</SimpleGrid>
+
+
+
+
 
 Once the premise was formulated, we went through several rounds of discussing what narratives we wanted the game to tell which included the space premise and the mechanics that we agreed upon. This looked like many white-boarding sessions in which we pitched more cohesive plans that told the game idea from start to finish.
 
-<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[8])} />
 
-After each pitch, we discussed, refined, and pitched again. Ultimately, we narrowed it down to the idea that we would pursue.
 
-<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[9])} />
+
 
 Now that we developed the idea of the game with greater detail, we needed to formalize and decide on the mechanics of the game. Getting a better understanding of the storyline actually helped us develop a natural set of mechanics that matched the story and objective of the game.
 
 We mapped out a flowchart for different paths that the game play could follow. Given the package-delivery premise of the story, we could create “good” and “bad” kinds of packages that tested the morality of the player.
 
-<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[10])} />
-
 These paths in turn could propel the game forward, as the player’s decision-making in delivering packages could help them with their position in the game (e.g. bailing out family members, assisting the resistance with which they felt loyalty towards). Mapping out our storyline and a flowchart for player decisions helped us decide on initial mechanics of the game such as delivering and destroying packages. 
 
+<SimpleGrid mb={4} columns={[1,1,2]} gap='4'>
+<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[10])} />
 <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[11])} />
+</SimpleGrid>
+
+
 
 ## Playtesting
 In total, we conducted 12 playtests. Since our game was always designed to be a single-player game, we tested our game with 1 playtester at a time. Our process involved the playtester, a moderator – which was especially necessary in the earlier stages when we had to manually navigate through the different paths – and a notetaker. Unless the question completely prevented the player from moving forward, we did our best to refrain from questions such as, “Am I allowed to ____” to see which directions the player went in based on their own intuitions. 
@@ -147,24 +179,47 @@ Per the advice of our TAs, our moderators role-played the different characters i
 ### Idea B: Low Fidelity – Paper Prototype
 You are a space delivery person who faces morally gray packages each day, and it’s up to you whether or not to actually deliver them. The game ends after a set number of days. Inspired by Papers, Please by Lucas Pope.
 
-<GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[12])} />
-
-Before we had anything digital, we tested an early conception of our game using a paper prototype that worked relatively well because our game deals with letters and packages that we could simply draw. This gave us the chance to present our game in a way that focused on narrative and tested the core mechanics, such as the binary deliver vs. incinerate option and when any given day ended.
+ <SimpleGrid columns={[null, 2, null]} spacing={10}>
+  <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[12])} />
+  <Box>
+    <p>Before we had anything digital, we tested an early conception of our game using a paper prototype that worked relatively well because our game deals with letters and packages that we could simply draw.</p>
+    <p>This gave us the chance to present our game in a way that focused on narrative and tested the core mechanics, such as the binary deliver vs. incinerate option and when any given day ended.
+    </p>
+  </Box>
+ </SimpleGrid>
 
 > “[This package] makes me feel bad, but I guess it’s not contraband. I have to incinerate even though it has a really cute note.” 
-> *- Khuyen, 5/3*
 
-* Likes:
-  * The balance between sillier packages and morally heavy ones
-  * The simple binary mechanic making it easy to learn.
-* Areas for Improvement:
-  * Took a while to comprehend that the destinations were distinct planets
-  * Hard to know which packages are relevant
-  * Confusing what can be done with the money that you make
-* Design Changes Moving Forward:
-  * Put more thought into the onboarding process that immerses the player in the world
-  * Connect the packages through 1 significant overarching narrative
-  * Remove money as a package component
+<Box p={3} borderRadius='lg' borderWidth='1px'>
+  <Tabs variant='enclosed'>
+    <TabList>
+      <Tab>Likes</Tab>
+      <Tab>Dislikes</Tab>
+      <Tab>Areas for Improvement</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>
+        <UnorderedList>
+          <ListItem>The balance between sillier packages and morally heavy ones</ListItem>
+          <ListItem>The simple binary mechanic making it easy to learn.</ListItem>
+        </UnorderedList>
+      </TabPanel>
+      <TabPanel>
+        <UnorderedList>
+          <ListItem>Harde to understand the destinations were distinct planets</ListItem>
+          <ListItem>Hard to know which packages are relevant</ListItem>
+          <ListItem>Confusing what can be done with the money that you make</ListItem>
+        </UnorderedList>
+      </TabPanel>
+      <TabPanel>
+        <UnorderedList>
+          <ListItem>Immerses the player in the world in the onboarding</ListItem>
+          <ListItem>Connect the packages with a significant overarching narrative</ListItem>
+        </UnorderedList>
+      </TabPanel>
+    </TabPanels>
+  </Tabs>
+</Box>
 
 ### Idea C: Medium Fidelity – Interactive Slides 
 B, but we’ve added an overarching narrative in which the packages are connected and you must piece them together. Multiple endings that change based on your choices.
@@ -177,30 +232,51 @@ After we delegated the roles in our team, we agreed that we would playtest a sim
 
 We were able to see how players reacted to the outcomes of the decisions they made and test the core loop, while presenting the atmosphere by showing spacey themes, playing sounds, and showing characters. In this version, we also had an interrogation phase where a playtester had to answer questions if they made too many mistakes – this ended up being unsuccessful!
 
-> “When the subplots come right after each other, it’s easier to connect them. Other times, I wasn’t able to remember. If they have distinctive elements, it’s easier to see how they’re connected, like the cookie… I wanted to know more what are these planets and who am I giving the packages to.” 
-> *- Esteban, 5/12*
 
-* Likes:
-  * Huge reactions after playtester failed to save family
-  * Player thrill in the ambiguousness of whether or not a package would help or harm
-  * Liked the multiple endings / replayability.
-* Areas for Improvement:
-  * Didn’t feel particularly motivated to help The Resistance
-  * Zeroed-in on bailing family out of jail
-  * Had to clarify rules.
-* Design Changes Moving Forward:
-  * Balance the motivations between political and personal
-  * Make the rules more clear in the onboarding sequence
-  * Remove the interrogation phase from the game
+<Tabs>
+  <TabList>
+    <Tab>Likes</Tab>
+    <Tab>Dislikes</Tab>
+    <Tab>Areas for Improvement</Tab>
+  </TabList>
+
+  <TabPanels>
+    <TabPanel>
+      <UnorderedList>
+        <ListItem>Huge reactions after playtester failed to save family</ListItem>
+        <ListItem>Player thrill in the ambiguousness of whether or not a package would help or harm</ListItem>
+        <ListItem>Liked the multiple endings / replayability</ListItem>
+      </UnorderedList>
+    </TabPanel>
+    <TabPanel>
+      <UnorderedList>
+        <ListItem>Didn’t feel particularly motivated to help The Resistance</ListItem>
+        <ListItem>Zeroed-in on bailing family out of jail</ListItem>
+        <ListItem>Had to clarify rules</ListItem>
+      </UnorderedList>
+    </TabPanel>
+    <TabPanel>
+      <UnorderedList>
+        <ListItem>Balance the motivations between political and personal</ListItem>
+        <ListItem>Make the rules more clear in the onboarding sequence</ListItem>
+        <ListItem>Remove the interrogation phase from the game</ListItem>
+      </UnorderedList>
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+
+> “When the subplots come right after each other, it’s easier to connect them. Other times, I wasn’t able to remember. If they have distinctive elements, it’s easier to see how they’re connected, like the cookie… I wanted to know more what are these planets and who am I giving the packages to.” 
 
 ### Idea D: High Fidelity – Unity
+
 C, but we’ve added more backstory and narrative that makes the player experience conflicting motivations between what’s best for The People (political movement) and your own family (personal tie). This meshes elements from our original dating sim into our new game idea.
 
 <GatsbyImage alt='alt-text-missing' image={getImage(props.localImages[15])} />
+
 Finally, we were able to bring it all together on Unity and playtest the full experience. We conducted 3 in-class playtests and 3 out-of-class playtests to get our final pieces of feedback to shape up before our final submission. The diagram shows one of our final planning sheets for the different paths of the game and how the packages factor into your outcome.
 
 > “I’m pretty upset that I performed my job as well as possible, and I got screwed over. I think my strategy was so that they could be nice to me. I think if I played more attention to the storyline from the beginning, I probably would not be sabotaged… Maybe when I get the first citation, tell me why I got it. 
-> **- Steven, 5/26**
 
 * Likes:
   * Strong reactions to the packages themselves and to the other characters like the Foreman or your family

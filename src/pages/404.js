@@ -2,6 +2,15 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import {
+  Container,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+} from "@chakra-ui/react"
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
 const NotFoundPage = () => (
   <Layout>

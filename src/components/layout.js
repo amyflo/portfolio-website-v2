@@ -1,15 +1,10 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-} from "./layout.module.css"
+import "./layout.module.css"
+import theme from "./theme"
 
 import { Button, ButtonGroup } from "@chakra-ui/react"
-import { ChakraProvider } from "@chakra-ui/react"
+import { Container, ChakraProvider } from "@chakra-ui/react"
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -23,13 +18,12 @@ const Layout = ({ pageTitle, children }) => {
   `)
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      <Button colorScheme="blue">Button</Button>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
+      {/* <header>{data.site.siteMetadata.title}</header> */}
+      {/* <nav>
         <ul className={navLinks}>
           <li className={navLinkItem}>
             <Link to="/" className={navLinkText}>
@@ -42,9 +36,9 @@ const Layout = ({ pageTitle, children }) => {
             </Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <main>
-        <h1 className={heading}>{pageTitle}</h1>
+        <h1>{pageTitle}</h1>
         {children}
       </main>
     </ChakraProvider>

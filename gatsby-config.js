@@ -7,10 +7,24 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `md`,
         path: `${__dirname}/md`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
       },
     },
     `gatsby-plugin-mdx`,

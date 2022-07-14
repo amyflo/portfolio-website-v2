@@ -1,0 +1,73 @@
+@import url("https://use.typekit.net/yhx5xdq.css");
+
+ul {
+    font-weight: 300;
+}
+
+body p {
+    font-weight: 300;
+    font-size: large;
+    margin: 20px 0px;
+}
+
+body h2 {
+    margin: 20px 0px;
+    font-size: xx-large;
+}
+
+body h3 {
+    margin: 20px 0px;
+    font-size: x-large;
+}
+
+body h4 {
+    margin: 20px 0px;
+    font-size: larger;
+}
+
+body blockquote {
+    margin: auto;
+    padding: 30px;
+}
+
+body blockquote p {
+    margin: auto;
+    font-size: larger;
+    max-width: 600px;
+    font-weight: 400;
+    text-align: center;
+}
+
+body figcaption {
+    font-family: elza-text, sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    margin: auto;
+    text-align: center;
+    font-size: small;
+    color: #35353b;
+}
+
+a {
+    text-decoration: none;
+    color: #18272F;
+    font-weight: 400;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    background-color: hsla(196, 61%, 58%, .5);
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+    bottom: 0;
+    height: 100%;
+}
