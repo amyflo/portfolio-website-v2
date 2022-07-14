@@ -4,34 +4,18 @@ import "./layout.module.css"
 import theme from "./theme"
 import ScrollToTop from "react-scroll-to-top"
 import { ChakraProvider, Container } from "@chakra-ui/react"
-import { Navigation } from "./nav"
+import Navigation from "./nav"
 
-const Layout = ({ pageTitle, children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+export default function Layout({ children }) {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <ScrollToTop
         style={{ backgroundColor: "#1a202c70", boxShadow: "none" }}
         color="white"
         width="40"
       />
-      <title>
-        {pageTitle} | {data.site.siteMetadata.title}
-      </title>
-
       <Navigation />
       {children}
     </ChakraProvider>
-  )
+  );
 }
-
-export default Layout

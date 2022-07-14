@@ -14,7 +14,7 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 import { Link } from "gatsby"
 
-export const Navigation = () => {
+export default function Navigation() {
   const { colorMode, toggleColorMode } = useColorMode()
   const isDark = colorMode === "dark"
   const bgColor = { light: "white", dark: "gray.800" }

@@ -1,35 +1,23 @@
-import * as React from "react"
-import { graphql } from "gatsby"
+import React from "react"
+import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import ScrollToTop from "react-scroll-to-top"
+import {GatsbyImage, getImage} from "gatsby-plugin-image"
+import { ChakraProvider, Container, Heading } from "@chakra-ui/react"
+import Navigation from "../components/nav"
+// import { GatsbyImage, getImage } from "gatsby-plugin-image"
+// import Layout from "../components/layout"
 
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
-import "../components/layout.module.css"
-import { Container, Box, Heading, SimpleGrid, Text } from "@chakra-ui/react"
-import Seo from "../components/seo"
-
-function AboutCard({ title, desc, ...rest }) {
+export default function post({ data }) {
+  let post = data.mdx
   return (
-    <Box {...rest}>
-      <Heading style={{ fontWeight: 400 }} size="md">
-        {title}
-      </Heading>
-      <Text>{desc}</Text>
-    </Box>
-  )
-}
-
-const BlogPost = ({ data }) => {
-  const image = getImage(data.mdx.frontmatter.hero_image)
-  return (
-    <Layout>
-      <Seo
-        description={data.mdx.frontmatter.description}
-        lang="en"
-        meta=""
-        title={data.mdx.frontmatter.title}
+    <ChakraProvider>
+      <ScrollToTop
+        style={{ backgroundColor: "#1a202c70", boxShadow: "none" }}
+        color="white"
+        width="40"
       />
-
+      <Navigation />
       <Container maxW="container.xl">
         <Heading
           mt="12"
@@ -38,26 +26,21 @@ const BlogPost = ({ data }) => {
           mb="12"
           size="xl"
         >
-          {data.mdx.frontmatter.description}
+          {post.frontmatter.description}
         </Heading>
-        <SimpleGrid mb="4" columns={[null, 3, null]} spacing={3}>
-          <AboutCard title="Role" desc={data.mdx.frontmatter.role} />
-          <AboutCard title="Team" desc={data.mdx.frontmatter.team} />
-          <AboutCard title="Tools" desc={data.mdx.frontmatter.tools} />
-        </SimpleGrid>
         <GatsbyImage
           style={{ margin: "auto" }}
           layout="fullWidth"
-          image={image}
-          alt={data.mdx.frontmatter.hero_image_alt}
+          image={getImage(post.frontmatter.hero_image)}
+          alt={post.frontmatter.hero_image_alt}
         />
       </Container>
       <Container maxW="container.lg">
-        <MDXRenderer localImages={data.mdx.frontmatter.embeddedImagesLocal}>
-          {data.mdx.body}
-        </MDXRenderer>
+      <MDXRenderer localImages={post.frontmatter.embeddedImagesLocal}>
+        {post.body}
+      </MDXRenderer>
       </Container>
-    </Layout>
+    </ChakraProvider>
   )
 }
 
@@ -87,5 +70,3 @@ export const query = graphql`
     }
   }
 `
-
-export default BlogPost

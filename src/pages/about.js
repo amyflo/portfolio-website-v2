@@ -8,7 +8,7 @@ import {
     SimpleGrid,
 } from "@chakra-ui/react"
 
-export default function Resume() {
+export default function About() {
     return (
         <Layout>
             <Container mt="24" mb="24" maxW="container.lg">
