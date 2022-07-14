@@ -1,12 +1,10 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-} from "./layout.module.css"
+import { useStaticQuery, graphql } from "gatsby"
+import "./layout.module.css"
+import theme from "./theme"
+import ScrollToTop from "react-scroll-to-top"
+import { ChakraProvider, Container } from "@chakra-ui/react"
+import { Navigation } from "./nav"
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -20,30 +18,19 @@ const Layout = ({ pageTitle, children }) => {
   `)
 
   return (
-    <div className={container}>
+    <ChakraProvider theme={theme}>
+      <ScrollToTop
+        style={{ backgroundColor: "#1a202c70", boxShadow: "none" }}
+        color="white"
+        width="40"
+      />
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
-              Home
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
-        {children}
-      </main>
-    </div>
+
+      <Navigation />
+      {children}
+    </ChakraProvider>
   )
 }
 
