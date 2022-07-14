@@ -14,7 +14,7 @@ import {
   Button,
 } from "@chakra-ui/react"
 
-const BlogPage = ({ data }) => {
+export default function Index({ data }) {
   return (
     <Layout>
       <Container mt="24" mb="24" maxW="container.lg">
@@ -99,5 +99,3 @@ export const query = graphql`
     }
   }
 `
-
-export default BlogPage
