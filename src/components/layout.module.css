@@ -4,14 +4,13 @@ ul {
   font-weight: 300;
 }
 
-body p{
-    margin: 20px 0px;
+body p {
+  margin: 20px 0px;
 }
 
 body {
   font-weight: 300;
   font-size: large;
-  margin: 20px 0px;
 }
 
 body h1 {
@@ -54,7 +53,6 @@ body figcaption {
   margin: auto;
   text-align: center;
   font-size: small;
-  color: #35353b;
 }
 
 body a {
@@ -65,13 +63,13 @@ body a {
 
 body a::before {
   content: "";
-  background-color: #BEE3F8;
+  background-color: #9ddbff7b;
   position: absolute;
   left: 0;
   bottom: 3px;
   width: 100%;
-  height: 8px;
-  z-index: -1;
+  height: 5px;
+  z-index: -10;
   transition: all 0.3s ease-in-out;
 }
 
@@ -80,15 +78,38 @@ body a:hover::before {
   height: 100%;
 }
 
-button a:before {
-    content: "";
-    background-color: white;
-    position: absolute;
-} 
+.navigation-bar a::before {
+  content: "";
+  height: 0px;
+  background-color: none;
+  position: absolute;
+}
 
-.scrollTop{
-    display: none; /* Hidden by default */
-    position: sticky; /* Fixed/sticky position */
-    position: sticky;
-    top: 0;
+.navigation-bar a:hover::before {
+  height: 0%;
+  z-index: 300;
+}
+
+button a:hover::before,
+.chakra-button a:hover::before {
+  height: 0%;
+}
+
+button a::before {
+  content: "";
+  height: 0px;
+  background-color: none;
+  position: absolute;
+}
+
+.chakra-button a::before {
+  content: "";
+  height: 0px;
+  background-color: none;
+  position: absolute;
+}
+
+img,
+iframe {
+  z-index: -30;
 }
