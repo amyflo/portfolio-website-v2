@@ -2,31 +2,65 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Box, Container, Heading, SimpleGrid, Text } from "@chakra-ui/react"
+import {
+  Box,
+  Container,
+  GridItem,
+  Heading,
+  SimpleGrid,
+  Grid,
+  Text,
+  Stack,
+  Button
+} from "@chakra-ui/react"
 
 const BlogPage = ({ data }) => {
   return (
-    <Layout pageTitle="My Blog Posts">
-      <SimpleGrid maxW="container.xl" columns={[null, 2, null]} spacing={10}>
+    <Layout>
+      <Container mt="24" mb="24" maxW="container.lg">
+        <Heading lineHeight='130%' size="xl" fontWeight={400}>
+          Amy Lo is a designer and developer obssessed with design systems,
+          decision-making, and the brain. She studies psychology and
+          computer science at Stanford. Currently, she works on a
+          frontend team at {" "}
+          <a href="https://www.accenture.com/us-en/about/accenture-song-index">Accenture Song</a>.
+        </Heading>
+      </Container>
+      <Container maxW="container.xl">
         {data.allMdx.nodes.map(node => (
-          <article key={node.id}>
-            <Box>
-              <Link to={`/${node.slug}`}>
-                <GatsbyImage
-                  layout="fullWidth"
-                  image={getImage(node.frontmatter.hero_image)}
-                  alt={node.frontmatter.hero_image_alt}
-                />
-              </Link>
-              <Heading>
-                <Link to={`/${node.slug}`}>{node.frontmatter.title}</Link>
-              </Heading>
-              <Text>{node.frontmatter.description}</Text>
-            </Box>
-          </article>
+          <Box mb="12" className="homecard" borderWidth='1px' borderRadius='lg' overflow='hidden'>
+            <article key={node.id}>
+              <SimpleGrid columns={[1, 1, 2]} spacing={[3, 6, 12]}>
+                <GridItem>
+                  <Link to={`/${node.slug}`}>
+                    <GatsbyImage
+                      layout="fullWidth"
+                      image={getImage(node.frontmatter.hero_image)}
+                      alt={node.frontmatter.hero_image_alt}
+                    />
+                  </Link>
+                </GridItem>
+                <GridItem mb="12" padding={[0, 4, 8]}>
+                  <Heading size="lg" >
+                    <Link to={`/${node.slug}`}>{node.frontmatter.title}</Link>
+                  </Heading>
+                  <Text mb="4">{node.frontmatter.description}</Text>
+
+                  <Stack direction={['column', 'row']} spacing={4} align='center'>
+                    <Button colorScheme='blue'>
+                      <Link to={`/${node.slug}`}>Read case study</Link>
+                    </Button>
+                    <Button colorScheme='blue' variant='outline'>
+                      <a href={node.frontmatter.external_link}><Text>{node.frontmatter.external_title}</Text></a>
+                    </Button>
+                  </Stack>
+                </GridItem>
+              </SimpleGrid>
+            </article>
+          </Box>
         ))}
-      </SimpleGrid>
-    </Layout>
+      </Container>
+    </Layout >
   )
 }
 
@@ -35,6 +69,8 @@ export const query = graphql`
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
+          external_link
+          external_title
           date(formatString: "MMMM D, YYYY")
           title
           description

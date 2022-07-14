@@ -1,10 +1,9 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import "./layout.module.css"
 import theme from "./theme"
-
-import { Button, ButtonGroup } from "@chakra-ui/react"
-import { Container, ChakraProvider } from "@chakra-ui/react"
+import ScrollToTop from "react-scroll-to-top";
+import { ChakraProvider } from "@chakra-ui/react"
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -19,6 +18,7 @@ const Layout = ({ pageTitle, children }) => {
 
   return (
     <ChakraProvider theme={theme}>
+      <ScrollToTop width="40"/>
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>

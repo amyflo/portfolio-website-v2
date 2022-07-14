@@ -30,20 +30,26 @@ const BlogPost = ({ data }) => {
       />
 
       <Container maxW="container.xl">
-        <Heading mt="12" style={{ fontWeight: 400 }} textStyle="h2" mb="12" size="xl">
+        <Heading
+          mt="12"
+          style={{ fontWeight: 400 }}
+          textStyle="h2"
+          mb="12"
+          size="xl"
+        >
           {data.mdx.frontmatter.description}
         </Heading>
-        <SimpleGrid mb="4" columns={[null, 3, null]} spacing={10}>
+        <SimpleGrid mb="4" columns={[null, 3, null]} spacing={3}>
           <AboutCard title="Role" desc={data.mdx.frontmatter.role} />
           <AboutCard title="Team" desc={data.mdx.frontmatter.team} />
           <AboutCard title="Tools" desc={data.mdx.frontmatter.tools} />
         </SimpleGrid>
         <GatsbyImage
-        style={{margin: "auto"}}
-        layout="fullWidth"
-        image={image}
-        alt={data.mdx.frontmatter.hero_image_alt}
-      />
+          style={{ margin: "auto" }}
+          layout="fullWidth"
+          image={image}
+          alt={data.mdx.frontmatter.hero_image_alt}
+        />
       </Container>
       <Container maxW="container.lg">
         <MDXRenderer localImages={data.mdx.frontmatter.embeddedImagesLocal}>

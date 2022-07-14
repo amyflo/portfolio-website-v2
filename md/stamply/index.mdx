@@ -1,7 +1,7 @@
 ---
 title: "Stamply"
-description: Stamply is a digital loyalty app that rewards you for shopping diverse small businesses. Winner of 2022 Adobe Creative Jam x Instagram.  
-date: "2022-07-12"
+description: Stamply is a digital loyalty app that rewards you for shopping diverse small businesses designed for Android. 1st Place Winner for 2021 Adobe Creative Jam x Instagram.  
+date: "2022-07-13"
 slug: "/stamply"
 hero_image: "./stamply.png"
 hero_image_alt: "A gray pitbull relaxing on the sidewalk with its tongue hanging out"
@@ -11,15 +11,29 @@ embeddedImagesLocal:
   - './low_fi.png'
   - './userflowmap.png'
   - './club.png'
-role: Product Designer
+role: UX Design, Ideation, Prototyping
 team: Liv Jenks
 tools: Adobe XD, Whimsical
+external_link: https://www.youtube.com/watch?v=Fl8st5-dwZc&feature=emb_title&ab_channel=LivJenks
+external_title: Watch demo video
 ---
 
 
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
-import { AspectRatio, SimpleGrid,GridItem } from "@chakra-ui/react";
+import { AspectRatio, Button, Stack, SimpleGrid,GridItem } from "@chakra-ui/react";
 
+
+<Stack mt="4" direction={['column', 'row']} spacing={4} align='center'>
+  <Button colorScheme='blue' variant='outline'>
+    <a href="https://xd.adobe.com/embed/d4019ede-c15f-46db-98bd-b6bfe5f81b05-8152/">Interact with final prototype</a>
+  </Button>
+  <Button colorScheme='blue' variant='outline'>
+    <a href="https://www.youtube.com/watch?v=Fl8st5-dwZc&feature=emb_title">Watch demo video</a>
+  </Button>
+  <Button colorScheme='blue' variant='outline'>
+    <a href="https://xd.adobe.com/embed/39e41b85-775a-46f4-945d-e0009bcbd618-6cb7/">Interact with early prototype</a>
+  </Button>
+</Stack>
 
 *PING!* At any given point, I can expect a random Taco Bell, 
 Starbucks, or Target notification to ping my phone, letting me know 
@@ -29,22 +43,19 @@ And it works.
 I’m one of the [72% of US adults who belong to at least one loyalty program](https://www.smallbizgenius.net/by-the-numbers/customer-loyalty-statistics/),
 and I’m sure you might be, too.
 
-Setting up a loyalty rewards program is expensive, with an estimated initial build and customization fee of around
-[$15,000-$40,000](https://www.stampme.com/blog/the-average-cost-of-a-digital-loyalty-program). This is not to mention additional costs to manage and maintain customers. While a loyalty rewards program can be a great return on investment, it’s still a big financial risk for small businesses without the resources to sink that development cost.  
+Setting up a loyalty rewards program is expensive, with an 
+[estimated initial build cost of $15k-40k](https://www.stampme.com/blog/the-average-cost-of-a-digital-loyalty-program). This is not to mention additional costs to manage and maintain customers. While a loyalty rewards program can be a great return on investment, it’s still a big financial risk for small businesses without the resources to sink that development cost.  
 
-
-And for consumers like us, it’s not easy either. On average, we’re loyal to 
-[nine different programs across multiple industries](https://whitelabel-loyalty.com/blog/loyalty-industry-insight/the-surprising-history-of-loyalty-programs). Juggling between several different apps and rewards systems can be confusing. It’s also harder for us to be rewarded for supporting the small businesses we love.
+And for consumers like us, it’s not easy either. On average, we’re loyal to [nine different programs](https://www.whitelabel-loyalty.com/blog/loyalty-industry-insight/the-surprising-history-of-loyalty-programs) across multiple industries. Juggling between several different apps and rewards systems can be confusing. It’s also harder for us to be rewarded for supporting the small businesses we love.
 
 
 ---
 
-## What’s out there for small businesses?
-
 <SimpleGrid mt="12" mb="12" columns={[1, 1, 2]} spacing={10}>
 <GridItem>
+<h2>What’s out there for small businesses?</h2>
 <p>
-We searched far and wide for a solution. We didn’t find it on the App Store or online, but in our wallets.
+We found a solution by looking in our wallets.
 </p>
 <p>
 Before the Internet, US companies used physical stamps as their loyalty programs that customers collected in books to exchange for rewards. This evolved into loyalty stamp cards that were cheap and easy for small businesses to print and distribute to loyal customers. Loyalty stamp cards could fit in your wallet and encourage repeat purchases.
