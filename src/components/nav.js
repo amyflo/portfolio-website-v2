@@ -29,7 +29,7 @@ export default function Navigation() {
       <Flex position="fixed" top="1rem" width="100%" align="center">
         <Box ml="8">
           <Link to="/">
-            <Heading fontSize="xxl">AMY F. LO</Heading>
+            <Heading fontSize="lg">AMY F. LO</Heading>
           </Link>
         </Box>
 
@@ -37,14 +37,25 @@ export default function Navigation() {
         <Spacer />
         <Flex mr="18" display={["none", "none", "flex", "flex"]}>
           <HStack spacing="18px">
-            <a href="mailto:amyflo@stanford.edu">Email</a>
-            <a href="https://www.linkedin.com/in/amyflo/">LinkedIn</a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href=" mailto:amyflo@stanford.edu"
+            >
+              Email
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href=" https://www.linkedin.com/in/amyflo/"
+            >
+              LinkedIn
+            </a>
             <Link to="/resume">Resume</Link>
             <Link to="/about">About</Link>
           </HStack>
         </Flex>
 
-        <p>Dark Mode</p>
         <Switch
           ml="2"
           mr="8"
@@ -91,7 +102,11 @@ export default function Navigation() {
           <Link to="/">
             <Heading>Home</Heading>
           </Link>
-          <a href="https://www.linkedin.com/in/amyflo/">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href=" https://www.linkedin.com/in/amyflo/"
+          >
             <Heading>LinkedIn</Heading>
           </a>
           <Link to="/resume">

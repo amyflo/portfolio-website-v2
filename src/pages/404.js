@@ -2,22 +2,25 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import {
-  Container,
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react"
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
+import { Button, Text, Heading, Container } from "@chakra-ui/react"
+import { Link } from "gatsby"
 
 export default function NotFoundPage() {
   return (
     <Layout>
-      <Seo title="404: Not found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Container mt="24" mb="24" maxW="container.lg">
+        <Seo title="404: Not found" />
+
+        <Heading lineHeight="130%" size="lg" fontWeight={400}>
+          Oops! We can't find that page.
+        </Heading>
+        <Text>
+          But hey, it's okay to feel lost. It happens to the best of us.
+        </Text>
+        <Button colorScheme="blue">
+          <Link to="/">Go back to home</Link>
+        </Button>
+      </Container>
     </Layout>
   )
 }
