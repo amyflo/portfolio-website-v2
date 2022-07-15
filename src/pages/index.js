@@ -2,13 +2,13 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Seo from "../components/seo"
 import {
-  Box,
   Container,
   GridItem,
+  Center,
   Heading,
   SimpleGrid,
-  Grid,
   Text,
   Stack,
   Button,
@@ -17,12 +17,23 @@ import {
 export default function Index({ data }) {
   return (
     <Layout>
+      <Seo
+        description="Amy is a designer and developer obssessed with design systems,
+          decision-making, and the brain. She studies psychology and computer
+          science at Stanford."
+        lang="en"
+        title="Home"
+      />
       <Container mt="24" mb="24" maxW="container.lg">
         <Heading lineHeight="130%" size="xl" fontWeight={400}>
           Amy is a designer and developer obssessed with design systems,
           decision-making, and the brain. She studies psychology and computer
           science at Stanford. Currently, she works on a frontend team at{" "}
-          <a href="https://www.accenture.com/us-en/about/accenture-song-index">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href=" https://www.accenture.com/us-en/about/accenture-song-index"
+          >
             Accenture Song
           </a>
           .
@@ -30,46 +41,41 @@ export default function Index({ data }) {
       </Container>
       <Container maxW="container.xl">
         {data.allMdx.nodes.map(node => (
-          <Box
-            mb="12"
-            className="homecard"
-            borderWidth="1px"
-            borderRadius="lg"
-            overflow="hidden"
-          >
-            <article key={node.id}>
-              <SimpleGrid columns={[1, 1, 2]} spacing={[3, 6, 12]}>
-                <GridItem>
+          <article key={node.id}>
+            <SimpleGrid mb="12" columns={[1, 1, 1, 2]} spacing={[0, 6, 12]}>
+              <GridItem>
+                <Center>
                   <GatsbyImage
-                    layout="fullWidth"
+                    layout="fullHeight"
+                    objectFit={"cover"}
                     image={getImage(node.frontmatter.hero_image)}
                     alt={node.frontmatter.hero_image_alt}
                   />
-                </GridItem>
-                <GridItem mb="12" padding={[0, 4, 8]}>
-                  <Heading size="lg">
-                    <Link to={`/${node.slug}`}>{node.frontmatter.title}</Link>
-                  </Heading>
-                  <Text mb="4">{node.frontmatter.description}</Text>
+                </Center>
+              </GridItem>
+              <GridItem mb="6" padding={[3, 3, 8]}>
+                <Heading size="lg">
+                  <Link to={`/${node.slug}`}>{node.frontmatter.title}</Link>
+                </Heading>
+                <p>{node.frontmatter.description}</p>
 
-                  <Stack
-                    direction={["column", "row"]}
-                    spacing={4}
-                    align="center"
-                  >
-                    <Button colorScheme="blue">
-                      <Link to={`/${node.slug}`}>Read case study</Link>
-                    </Button>
-                    <Button colorScheme="blue" variant="outline">
-                      <a href={node.frontmatter.external_link}>
-                        <Text>{node.frontmatter.external_title}</Text>
-                      </a>
-                    </Button>
-                  </Stack>
-                </GridItem>
-              </SimpleGrid>
-            </article>
-          </Box>
+                <Stack
+                  direction={["column", "column", "row"]}
+                  spacing={4}
+                  align="center"
+                >
+                  <Button colorScheme="blue">
+                    <Link to={`/${node.slug}`}>Read case study</Link>
+                  </Button>
+                  <Button colorScheme="blue" variant="outline">
+                    <a href={node.frontmatter.external_link}>
+                      <Text>{node.frontmatter.external_title}</Text>
+                    </a>
+                  </Button>
+                </Stack>
+              </GridItem>
+            </SimpleGrid>
+          </article>
         ))}
       </Container>
     </Layout>

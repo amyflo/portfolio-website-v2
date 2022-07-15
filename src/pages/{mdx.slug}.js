@@ -1,17 +1,22 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import ScrollToTop from "react-scroll-to-top"
-import {GatsbyImage, getImage} from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ChakraProvider, Container, Heading } from "@chakra-ui/react"
 import Navigation from "../components/nav"
-// import { GatsbyImage, getImage } from "gatsby-plugin-image"
-// import Layout from "../components/layout"
+import Footer from "../components/footer"
+import Seo from "../components/seo"
 
 export default function post({ data }) {
   let post = data.mdx
   return (
     <ChakraProvider>
+      <Seo
+        description={post.frontmatter.description}
+        lang="en"
+        title={post.frontmatter.title}
+      />
       <ScrollToTop
         style={{ backgroundColor: "#1a202c70", boxShadow: "none" }}
         color="white"
@@ -36,10 +41,11 @@ export default function post({ data }) {
         />
       </Container>
       <Container maxW="container.lg">
-      <MDXRenderer localImages={post.frontmatter.embeddedImagesLocal}>
-        {post.body}
-      </MDXRenderer>
+        <MDXRenderer localImages={post.frontmatter.embeddedImagesLocal}>
+          {post.body}
+        </MDXRenderer>
       </Container>
+      <Footer />
     </ChakraProvider>
   )
 }

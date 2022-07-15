@@ -113,3 +113,11 @@ img,
 iframe {
   z-index: -30;
 }
+
+hr {
+  margin: 30px 0px;
+}
+
+body img {
+  border-radius: 10px;
+}
